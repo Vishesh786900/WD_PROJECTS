@@ -1,5 +1,4 @@
 # WD_PROJECTS
-# Web-Devlopment
 PRE-LAB
 
 AIM: Create a GitHub account and demonstrate repository creation, file
