@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML5 APIs Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h2 { margin-top: 30px; }
+
+    /* Drag & Drop */
+    #dragBox {
+      width: 100px;
+      height: 100px;
+      background: #3498db;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+    }
+
+    #dropZone {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #333;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    /* Buttons */
+    button { padding: 8px 15px; margin-top: 10px; cursor: pointer; }
+
+    /* Storage */
+    input { padding: 5px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>HTML5 APIs Demonstration</h1>
+
+  <!-- Drag and Drop -->
+  <h2>Drag & Drop API</h2>
+  <div id="dragBox" draggable="true">Drag me</div>
+  <div id="dropZone">Drop here</div>
+
+  <!-- Geolocation -->
+  <h2>Geolocation API</h2>
+  <button onclick="getLocation()">Get Location</button>
+  <p id="location"></p>
+
+  <!-- Web Storage -->
+  <h2>Web Storage API</h2>
+  <input type="text" id="nameInput" placeholder="Enter your name">
+  <br>
+  <button onclick="saveName()">Save to LocalStorage</button>
+  <button onclick="loadName()">Load Name</button>
+  <p id="output"></p>
+
+  <script>
+    // Drag & Drop
+    const dragBox = document.getElementById("dragBox");
+    const dropZone = document.getElementById("dropZone");
+
+    dragBox.addEventListener("dragstart", (e) => {
+      e.dataTransfer.setData("text", "Dragged!");
+    });
+
+    dropZone.addEventListener("dragover", (e) => {
+      e.preventDefault();
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropZone.innerHTML = "Dropped!";
+      dropZone.style.background = "#2ecc71";
+    });
+
+    // Geolocation
+    function getLocation() {
+      const output = document.getElementById("location");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          output.innerHTML = "Latitude: " + position.coords.latitude +
+                             "<br>Longitude: " + position.coords.longitude;
+        }, () => {
+          output.innerHTML = "Unable to retrieve location.";
+        });
+      } else {
+        output.innerHTML = "Geolocation not supported.";
+      }
+    }
+
+    // Web Storage
+    function saveName() {
+      const name = document.getElementById("nameInput").value;
+      localStorage.setItem("username", name);
+      alert("Name saved!");
+    }
+
+    function loadName() {
+      const name = localStorage.getItem("username");
+      document.getElementById("output").innerHTML = "Stored Name: " + (name || "No data found");
+    }
+  </script>
+
+</body>
+</html>
