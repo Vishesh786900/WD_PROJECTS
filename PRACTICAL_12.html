@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage - Practical 12</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            background-color: white;
+            flex: 1;
+            max-width: 300px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <h1>MyWebsite</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Carousel -->
+    <section>
+        <h2>Slideshow</h2>
+        <img src="https://via.placeholder.com/800x400/000000/FFFFFF?text=Welcome" alt="Welcome Slide" width="800" height="400">
+    </section>
+
+    <!-- Cards Section -->
+    <section>
+        <h2>Our Features</h2>
+        <div class="card-container">
+            <div class="card" id="card1">
+                <img src="https://via.placeholder.com/300x200/007BFF/FFFFFF?text=Feature+1" alt="Feature 1" width="300" height="200">
+                <h3>Feature One</h3>
+                <p>This is a description of the first feature. It provides great value to our users.</p>
+                <button id="btn1">Learn More</button>
+            </div>
+            <div class="card" id="card2">
+                <img src="https://via.placeholder.com/300x200/28A745/FFFFFF?text=Feature+2" alt="Feature 2" width="300" height="200">
+                <h3>Feature Two</h3>
+                <p>This is a description of the second feature. It's designed for efficiency.</p>
+                <button id="btn2">Get Started</button>
+            </div>
+            <div class="card" id="card3">
+                <img src="https://via.placeholder.com/300x200/DC3545/FFFFFF?text=Feature+3" alt="Feature 3" width="300" height="200">
+                <h3>Feature Three</h3>
+                <p>This is a description of the third feature. It enhances user experience.</p>
+                <button id="btn3">Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 MyWebsite. All rights reserved.</p>
+        <p>Follow us on social media.</p>
+    </footer>
+
+    <script>
+        // Beginner level JavaScript
+        // Add event listeners to buttons
+        document.getElementById('btn1').addEventListener('click', function() {
+            alert('Learn More about Feature One!');
+            document.getElementById('card1').style.backgroundColor = 'lightblue';
+        });
+
+        document.getElementById('btn2').addEventListener('click', function() {
+            alert('Get Started with Feature Two!');
+            document.getElementById('card2').style.backgroundColor = 'lightgreen';
+        });
+
+        document.getElementById('btn3').addEventListener('click', function() {
+            alert('Explore Feature Three!');
+            document.getElementById('card3').style.backgroundColor = 'lightcoral';
+        });
+
+        // Simple function example
+        function greetUser() {
+            console.log('Welcome to our website!');
+        }
+
+        // Call the function when page loads
+        window.onload = greetUser;
+    </script>
+</body>
+</html>
